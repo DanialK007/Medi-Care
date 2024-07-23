@@ -5,7 +5,7 @@ import { AmbulanceIcon, HeartPulseIcon, MicroscopeIcon, PillBottleIcon, ShipWhee
 function Services() {
   return (
     <section className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-24">
-          <div className="max-w-5xl mx-auto">
+          <div className="px-10 mx-auto">
             <div className="text-center space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold">Our Services</h2>
               <p className="text-muted-foreground text-lg md:text-xl">Explore our wide range of medical services.</p>

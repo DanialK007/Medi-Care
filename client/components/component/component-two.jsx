@@ -33,6 +33,10 @@ import Services from "./Services"
 import About from "./About"
 import Schedule from "./Schedule"
 import Rooms from "./Rooms"
+import Navbar from "./Navbar"
+import Department from "./Department"
+import { BadgeCheck, Hospital, PersonStanding, Truck } from "lucide-react"
+import { Pencil1Icon } from "@radix-ui/react-icons"
 
 const doctors = [
   {
@@ -76,56 +80,65 @@ const doctors = [
 export function ComponentTwo() {
   return (
     (<div className="flex flex-col min-h-[100dvh]">
-      <header className="bg-primary text-primary-foreground py-6 absolute top-0 left-0 w-full z-50">
-        <div className="container flex items-center justify-between px-10">
-          <Link href="#" className="flex items-center gap-2" prefetch={false}>
-            <HospitalIcon className="h-6 w-6" />
-            <span className="text-lg font-semibold">MedCare</span>
-          </Link>
-          <nav className="hidden md:flex items-center gap-4">
-            <Link href="#" className="hover:underline underline-offset-4" prefetch={false}>
-              Find Doctors
-            </Link>
-            <Link href="/rooms" className="hover:underline underline-offset-4" prefetch={false}>
-              Rooms
-            </Link>
-            <Link href="#" className="hover:underline underline-offset-4" prefetch={false}>
-              About Us
-            </Link>
-            <Link href="#" className="hover:underline underline-offset-4" prefetch={false}>
-              Contact
-            </Link>
-          </nav>
-          <Button className="bg-secondary">Book Appointment</Button>
-        </div>
-      </header>
+      <Navbar />
       <main>
-        <section className="px-10 bg-primary h-screen flex items-center justify-center pt-16">
-          <div className="container grid md:grid-cols-2 gap-6 items-center">
-            <div className="space-y-4">
+        <section className="bg-gradient-to-r from-[white] from-[30%] to-[80%] relative min-h-screen">
+          <div className="absolute top-0 left-0 w-full h-full -z-10 flex justify-end">
+            <img src="/hero.png" alt="" className="w-full object-top h-full object-cover"/>
+          </div>
+          <div className="container max-w-6xl mx-auto pt-80 md:pt-80 pb-40 px-5">
+            <div className="space-y-2 md:space-y-4 max-w-3xl">
               <h1
-                className="text-3xl font-bold text-primary-foreground sm:text-4xl md:text-5xl">
-                Find the Best Healthcare for You
+                className="text-3xl lg:text-[3.2rem] lg:leading-[3.4rem] max-w-[320px] md:max-w-[550px]">
+                Your Health 
+                <span className="font-bold"> is always in the first place</span>
               </h1>
-              <p className="text-primary-foreground/80 md:text-xl">
-                Our hospital offers a wide range of medical services and experienced doctors to provide you with the
-                best care.
+              <p className="text-destructive/60 text-lg md:text-2xl">
+              Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
               </p>
               <Button
                 variant="solid"
-                className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
+                className="bg-primary rounded-[30px] text-primary-foreground hover:bg-primary/90">
                 Book Appointment
               </Button>
             </div>
-            <img
-              src="/placeholder.svg"
-              width={600}
-              height={400}
-              alt="Hero Image"
-              className="mx-auto rounded-xl p-5" />
+          </div>
+          <div className="bg-gradient-to-r from-[#30ccebd8] to-[#1eb4f4d7] py-10 text-[white] w-full">
+            <div className="container max-w-6xl mx-auto grid px-10 grid-cols-2 lg:flex justify-end gap-y-5 gap-x-14">
+              <div className="">
+                <div className="flex gap-2 items-center">
+                  <PersonStanding className="w-8 h-8"/>
+                  <div className="text-2xl lg:text-5xl">3476</div>
+                </div>
+                <div className="text-lg opacity-75">Satisfied Customers</div>
+              </div>
+              <div className="">
+                <div className="flex gap-2 items-center">
+                  <Hospital className="w-8 h-8"/>
+                  <div className="text-2xl lg:text-5xl">248</div>
+                </div>
+                <div className="text-lg opacity-75">Hospitals</div>
+              </div>
+              <div className="">
+                <div className="flex gap-2 items-center">
+                  <BadgeCheck className="w-8 h-8"/>
+                  <div className="text-2xl lg:text-5xl">400+</div>
+                </div>
+                <div className="text-lg opacity-75">Qualified Doctors</div>
+              </div>
+              <div className="">
+                <div className="flex gap-2 items-center">
+                  <Truck className="w-8 h-8"/>
+                  <div className="text-2xl lg:text-5xl">34</div>
+                </div>
+                <div className="text-lg opacity-75">Departments</div>
+              </div>
+            </div>
           </div>
         </section>
+        <About />
         <Services />
+        <Department />
         <section className="px-10 py-12 md:py-24">
           <div className="container">
             <div className="flex items-center justify-between mb-8">
@@ -172,80 +185,6 @@ export function ComponentTwo() {
           </div>
         </section>
         <Rooms />
-        <section className="px-10 bg-muted py-12 md:py-24">
-          <div className="container">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold">Our Departments</h2>
-              <div className="flex items-center gap-2">
-                <Input
-                  type="text"
-                  placeholder="Search by name or specialty"
-                  className="max-w-xs" />
-                <Button variant="outline">
-                  <SearchIcon className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  name: "Pediatrics",
-                  description: "Our pediatric department provides comprehensive care for children of all ages.",
-                  services: ["Well-child visits", "Immunizations", "Sick visits"],
-                },
-                {
-                  name: "Cardiology",
-                  description:
-                    "Our cardiology department specializes in the diagnosis and treatment of heart conditions.",
-                  services: ["Echocardiograms", "Stress tests", "Cardiac catheterization"],
-                },
-                {
-                  name: "Dermatology",
-                  description:
-                    "Our dermatology department offers a wide range of treatments for skin, hair, and nail conditions.",
-                  services: ["Acne treatment", "Skin cancer screening", "Laser treatments"],
-                },
-                {
-                  name: "Orthopedics",
-                  description:
-                    "Our orthopedic department specializes in the diagnosis and treatment of musculoskeletal conditions.",
-                  services: ["Joint replacement", "Fracture care", "Physical therapy"],
-                },
-                {
-                  name: "Obstetrics",
-                  description:
-                    "Our obstetrics department provides comprehensive care for women throughout their pregnancy and postpartum.",
-                  services: ["Prenatal care", "Delivery services", "Postpartum care"],
-                },
-                {
-                  name: "Neurology",
-                  description:
-                    "Our neurology department specializes in the diagnosis and treatment of conditions affecting the brain, spinal cord, and nervous system.",
-                  services: ["Stroke treatment", "Epilepsy management", "Headache treatment"],
-                },
-              ].map((department, index) => (
-                <Card key={index}>
-                  <CardContent className="p-6 space-y-4">
-                    <h3 className="font-semibold">{department.name}</h3>
-                    <p className="text-muted-foreground">{department.description}</p>
-                    <ul className="space-y-2 text-muted-foreground">
-                      {department.services.map((service, serviceIndex) => (
-                        <li key={serviceIndex}>
-                          <CheckIcon className="mr-2 inline-block h-4 w-4 fill-primary" />
-                          {service}
-                        </li>
-                      ))}
-                    </ul>
-                    <Button variant="outline" className="ml-auto">
-                      Learn More
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-        <About />
         <Schedule />
       </main>
       <footer className="bg-primary text-primary-foreground py-6 px-4 md:px-6">
