@@ -15,7 +15,7 @@ function About() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
               <div>
                 <img
-                  src="image1.png"
+                  src="/img/coverbg2.png"
                   width="550"
                   height="610"
                   alt="Hospital"

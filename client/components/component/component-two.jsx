@@ -37,6 +37,8 @@ import Navbar from "./Navbar"
 import Department from "./Department"
 import { BadgeCheck, Hospital, PersonStanding, Truck } from "lucide-react"
 import { Pencil1Icon } from "@radix-ui/react-icons"
+import Hero from "./Hero"
+import Comprehensive from "./Comprehensive"
 
 const doctors = [
   {
@@ -82,60 +84,8 @@ export function ComponentTwo() {
     (<div className="flex flex-col min-h-[100dvh]">
       <Navbar />
       <main>
-        <section className="bg-gradient-to-r from-[white] from-[30%] to-[80%] relative min-h-screen">
-          <div className="absolute top-0 left-0 w-full h-full -z-10 flex justify-end">
-            <img src="/hero.png" alt="" className="w-full object-top h-full object-cover"/>
-          </div>
-          <div className="container max-w-6xl mx-auto pt-80 md:pt-80 pb-40 px-5">
-            <div className="space-y-2 md:space-y-4 max-w-3xl">
-              <h1
-                className="text-3xl lg:text-[3.2rem] lg:leading-[3.4rem] max-w-[320px] md:max-w-[550px]">
-                Your Health 
-                <span className="font-bold"> is always in the first place</span>
-              </h1>
-              <p className="text-destructive/60 text-lg md:text-2xl">
-              Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-              </p>
-              <Button
-                variant="solid"
-                className="bg-primary rounded-[30px] text-primary-foreground hover:bg-primary/90">
-                Book Appointment
-              </Button>
-            </div>
-          </div>
-          <div className="bg-gradient-to-r from-[#30ccebd8] to-[#1eb4f4d7] py-10 text-[white] w-full">
-            <div className="container max-w-6xl mx-auto grid px-10 grid-cols-2 lg:flex justify-end gap-y-5 gap-x-14">
-              <div className="">
-                <div className="flex gap-2 items-center">
-                  <PersonStanding className="w-8 h-8"/>
-                  <div className="text-2xl lg:text-5xl">3476</div>
-                </div>
-                <div className="text-lg opacity-75">Satisfied Customers</div>
-              </div>
-              <div className="">
-                <div className="flex gap-2 items-center">
-                  <Hospital className="w-8 h-8"/>
-                  <div className="text-2xl lg:text-5xl">248</div>
-                </div>
-                <div className="text-lg opacity-75">Hospitals</div>
-              </div>
-              <div className="">
-                <div className="flex gap-2 items-center">
-                  <BadgeCheck className="w-8 h-8"/>
-                  <div className="text-2xl lg:text-5xl">400+</div>
-                </div>
-                <div className="text-lg opacity-75">Qualified Doctors</div>
-              </div>
-              <div className="">
-                <div className="flex gap-2 items-center">
-                  <Truck className="w-8 h-8"/>
-                  <div className="text-2xl lg:text-5xl">34</div>
-                </div>
-                <div className="text-lg opacity-75">Departments</div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Hero />
+        <Comprehensive />
         <About />
         <Services />
         <Department />
